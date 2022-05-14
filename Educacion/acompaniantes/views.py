@@ -7,14 +7,18 @@ from .logic.acompaniante_logic import get_acompaniantes, get_acompaniante, creat
 from django.contrib.auth.decorators import login_required
 from monitoring.auth0backend import getRole
 
-//@login_required
+@login_required
 def acompaniante_list(request):
-    acompaniantes = get_acompaniantes()
-    context = {
-        'acompaniante_list': acompaniantes
-    }
+    role = getRole(request)
+    if role == "Acompaniante":
+        acompaniantes = get_acompaniantes()
+        context = {
+            'acompaniante_list': acompaniantes
+        }
+        return render(request, 'Acompaniante/acompaniantes.html', context)
     return render(request, 'Acompaniante/acompaniantes.html', context)
-
+    else:
+        return HttpResponse("Unauthorized User")
 @login_required
 def single_acompaniante(request, id=0):
     acompaniante = get_acompaniante(id)
