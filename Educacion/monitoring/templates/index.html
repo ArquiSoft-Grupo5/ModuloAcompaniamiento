@@ -6,3 +6,35 @@
     </div>
 
 {% endblock %}
+<form method = "post">
+    {% csrf_token %}
+<div class= "row">
+
+<div class= "col-md-6 col-md-offset-3">
+<div class= "form-group">
+
+<label for ="username"> nombre de usuario :</label>
+ <input class = "form-control" type=" text" name= "username"> 
+
+</div>
+</div>
+</div>
+<div class= "row">
+<div class= "col-md-6 col-md-offset-3">
+<div class= "form-group">
+    <label for ="username"> contraseña: </label>
+    <input class = "form-control" type=" text" name= "password"> 
+</div>
+</div>
+</div>
+
+<div class= "row">
+</div class= "col-md-6 col-md-offset-3">
+<div class= "form-group">
+    <label for= "username"> olvide  </a>
+    <input class = "form-control" type=" text" name="ingresar"> 
+</div>
+</div>
+</div>
+
+</form>
