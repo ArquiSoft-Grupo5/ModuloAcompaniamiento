@@ -5,7 +5,6 @@ from django.urls import reverse
 from .forms import AcompanianteForm
 from .logic.acompaniante_logic import get_acompaniantes, get_acompaniante, create_acompaniante
 from django.contrib.auth.decorators import login_required
-from monitoring.auth0backend import getRole
 
 @login_required
 def acompaniante_list(request):
