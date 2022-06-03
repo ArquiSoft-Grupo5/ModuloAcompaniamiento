@@ -19,6 +19,9 @@ def acompaniante_list(request):
     return render(request, 'Acompaniante/acompaniantes.html', context)
     else:
         return HttpResponse("Unauthorized User")
+
+
+        
 @login_required
 def single_acompaniante(request, id=0):
     acompaniante = get_acompaniante(id)

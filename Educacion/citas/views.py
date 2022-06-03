@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect, get_object_or_404
 from .forms import CitaForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .logic.logic_cita import create_cita, get_citas
 from django.contrib.auth.decorators import login_required
+from .models import Cita
+
 
 @login_required
 def cita_list(request):
@@ -31,3 +33,8 @@ def cita_create(request):
     }
 
     return render(request, 'Cita/citaCreate.html', context)
+
+def eliminar_cita (request,id):
+    lacita = get_object_or_404 (Cita, id=id)
+    lacita.detete ()
+    return redirect (to= "listarcitas")
