@@ -8,3 +8,8 @@ def create_cita(form):
     cita = form.save()
     cita.save()
     return ()
+
+def eliminar_cita(form):
+    cita = form.save()
+    cita.save()
+    return ()
